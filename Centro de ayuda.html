@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M28 Centro de Ayuda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c70000;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --bg-color: #f3f4f6;
+            --sidebar-width: 250px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 100;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .navbar h1 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 4rem;
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - 4rem);
+            background: white;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin: 0.5rem 0;
+        }
+
+        .sidebar-nav button {
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background: var(--bg-color);
+            color: var(--primary-color);
+        }
+
+        .sidebar-nav button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            margin-top: 4rem;
+            padding: 2rem;
+        }
+
+        .section {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .info {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.1;
+            font-size: 3rem;
+            color: var(--text-color);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>M28 Centro de Ayuda</h1>
+    </nav>
+
+    <aside class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li><button data-section="inicio" class="active" aria-current="page">Inicio</button></li>
+            <li><button data-section="manual-tecnico">Manual Técnico</button></li>
+            <li><button data-section="manual-transferencia">Manual de Transferencia</button></li>
+            <li><button data-section="manual-usuario">Manual de Usuario</button></li>
+            <li><button data-section="simulador">Simulador VIU-500</button></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <section id="inicio" class="section active">
+            <h2>Bienvenido al Centro de Ayuda M28</h2>
+            <div class="info">
+                <p>Este centro de ayuda proporciona acceso a los manuales técnicos, de usuario, de transferencia de datos y un simulador del sistema biométrico electoral M28. Seleccione una opción del menú lateral para acceder a la información deseada.</p>
+            </div>
+        </section>
+
+        <section id="manual-tecnico" class="section">
+            <h2>Manual Técnico - Sistema Biométrico Electoral</h2>
+            <div class="info">
+                <p>Este manual proporciona información detallada sobre la implementación, configuración y mantenimiento del sistema biométrico electoral M28.</p>
+            </div>
+            <iframe src="Manual Técnico - Sistema Biométrico Electoral.html" width="100%" height="600px" style="border: none;"></iframe>
+        </section>
+
+        <section id="manual-transferencia" class="section">
+            <h2>Manual de Transferencia de Datos</h2>
+            <div class="info">
+                <p>Este manual explica el proceso de transferencia de datos desde el dispositivo biométrico a la base de datos centralizada.</p>
+            </div>
+            <iframe src="manual transferencia.html" width="100%" height="600px" style="border: none;"></iframe>
+        </section>
+
+        <section id="manual-usuario" class="section">
+            <h2>Manual de Usuario - Sistema Biométrico Electoral</h2>
+            <div class="info">
+                <p>Este manual está dirigido a los operadores del sistema biométrico electoral M28 y proporciona instrucciones detalladas para su uso.</p>
+            </div>
+            <iframe src="Manual.html" width="100%" height="600px" style="border: none;"></iframe>
+        </section>
+
+        <section id="simulador" class="section">
+            <h2>Simulador VIU-500</h2>
+            <div class="info">
+                <p>Este simulador permite probar las funcionalidades del dispositivo biométrico VIU-500 en un entorno controlado.</p>
+            </div>
+            <iframe src="Prueba de simulador.html" width="100%" height="600px" style="border: none;"></iframe>
+        </section>
+    </main>
+
+    <div class="watermark">M28</div>
+
+    <script>
+        document.querySelectorAll('.sidebar-nav button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.sidebar-nav button').forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked button
+                button.classList.add('active');
+
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+                // Show the selected section
+                const sectionId = button.getAttribute('data-section');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
